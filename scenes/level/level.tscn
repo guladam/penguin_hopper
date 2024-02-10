@@ -10,13 +10,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t5e3l"]
 panorama = ExtResource("1_ftkit")
 
-[sub_resource type="Sky" id="Sky_jgeun"]
+[sub_resource type="Sky" id="Sky_o43d5"]
 sky_material = SubResource("PanoramaSkyMaterial_t5e3l")
 
 [sub_resource type="Environment" id="Environment_worhx"]
 background_mode = 2
 background_color = Color(0.662745, 0.694118, 0.772549, 1)
-sky = SubResource("Sky_jgeun")
+sky = SubResource("Sky_o43d5")
 ambient_light_source = 3
 ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
 tonemap_mode = 2

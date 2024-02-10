@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://btdn3klyrh55m"]
+
+[ext_resource type="Texture2D" uid="uid://b8wdsg0gqvd81" path="res://assets/sky.png" id="1_lproi"]
+[ext_resource type="PackedScene" uid="uid://bysfltniew1wv" path="res://scenes/water/water.tscn" id="2_acg37"]
+[ext_resource type="PackedScene" uid="uid://dlbm052w6ciuj" path="res://scenes/ice_blocks/ice_block_1.tscn" id="3_m674q"]
+[ext_resource type="PackedScene" uid="uid://c7xcu5p80d3vw" path="res://scenes/penguin/penguin.tscn" id="4_nxwbo"]
+[ext_resource type="Texture2D" uid="uid://dao6tur20kh41" path="res://icon.svg" id="5_vytbb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ci5qw"]
+panorama = ExtResource("1_lproi")
+
+[sub_resource type="Sky" id="Sky_jgeun"]
+sky_material = SubResource("PanoramaSkyMaterial_ci5qw")
+
+[sub_resource type="Environment" id="Environment_qpku5"]
+background_mode = 2
+background_color = Color(0.662745, 0.694118, 0.772549, 1)
+sky = SubResource("Sky_jgeun")
+ambient_light_source = 3
+ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
+tonemap_mode = 2
+
+[node name="Menu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qpku5")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 9, 0)
+light_color = Color(0.694118, 0.694118, 0.694118, 1)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="Water" parent="." instance=ExtResource("2_acg37")]
+transform = Transform3D(-4.37114e-06, 0, -30, 0, 1, 0, 100, 0, -1.31134e-06, 0, -0.267837, 0)
+
+[node name="IceBlock1" parent="." instance=ExtResource("3_m674q")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, 0.0954045, -0.490814, 0, 0.981627, 0.190809, 0.5, -0.165245, 0.850114, -2.65316, 1.25176, 2.20501)
+current = true
+
+[node name="Penguin" parent="." node_paths=PackedStringArray("view") instance=ExtResource("4_nxwbo")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+view = NodePath("../Camera3D")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="VBoxContainer" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -155.5
+offset_right = -155.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Logo" type="TextureRect" parent="Menu/MainMenu"]
+layout_mode = 2
+texture = ExtResource("5_vytbb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="NewGameButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="ControlsButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="ExitButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
