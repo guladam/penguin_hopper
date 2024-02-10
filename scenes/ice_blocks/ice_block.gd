@@ -21,6 +21,9 @@ func _ready() -> void:
 func set_health(value: int) -> void:
 	health = value
 	%Health.text = "%s / 16" % value
+	
+	if health <= 0:
+		queue_free()
 
 
 func _on_body_entered(penguin: Penguin) -> void:
