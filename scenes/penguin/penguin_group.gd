@@ -19,3 +19,4 @@ func _select_penguin(index: int) -> void:
 	var penguin: Penguin = get_child(index) as Penguin
 	penguin.current = true
 	selected = penguin
+	Events.penguin_selected.emit(selected)

@@ -1,9 +1,6 @@
 class_name IceBlock
 extends Node3D
 
-signal ice_block_jumped_on(ice_block: IceBlock)
-signal ice_block_jumped_off(ice_block: IceBlock)
-
 @export var health: int = 16 : set=set_health
 
 @onready var area_3d: Area3D = $Area3D
@@ -32,7 +29,7 @@ func _on_body_entered(penguin: Penguin) -> void:
 	
 	penguins += 1
 	health -= penguins
-	ice_block_jumped_on.emit(self)
+	Events.ice_block_jumped_on.emit(self)
 
 
 func _on_body_exited(penguin: Penguin) -> void:
@@ -41,4 +38,4 @@ func _on_body_exited(penguin: Penguin) -> void:
 	
 	penguins -= 1
 	health -= penguins
-	ice_block_jumped_off.emit(self)
+	Events.ice_block_jumped_off.emit(self)
