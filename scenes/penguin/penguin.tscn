@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xcu5p80d3vw"]
+
+[ext_resource type="Script" path="res://scenes/penguin/penguin.gd" id="1_2uhtd"]
+[ext_resource type="PackedScene" uid="uid://7qjvxrr3640p" path="res://assets/placeholder/character.glb" id="1_5rbey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qn4c"]
+
+[node name="Penguin" type="CharacterBody3D"]
+script = ExtResource("1_2uhtd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_1qn4c")
+
+[node name="CharacterModel" parent="." instance=ExtResource("1_5rbey")]
