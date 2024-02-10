@@ -1,20 +1,22 @@
+class_name Penguin
 extends CharacterBody3D
 
 @export_subgroup("Components")
 @export var view: Node3D
 
 @export_subgroup("Properties")
-@export var movement_speed = 250
-@export var jump_strength = 7
+@export var movement_speed: int = 250
+@export var jump_strength: int = 7
 
+var current: bool = false : set=set_current
 var movement_velocity: Vector3
 var rotation_direction: float
-var gravity = 0
+var gravity: float = 0.0
 
-var previously_floored = false
+var previously_floored: bool = false
 
-var jump_single = true
-var jump_double = true
+var jump_single: bool = true
+var jump_double: bool = true
 
 @onready var model = $CharacterModel
 @onready var animation = $CharacterModel/AnimationPlayer
@@ -50,6 +52,16 @@ func _physics_process(delta: float) -> void:
 	previously_floored = is_on_floor()
 
 
+func set_current(value: bool) -> void:
+	current = value
+	%Arrow.visible = current
+	
+	if current:
+		%ArrowAnim.play("animate")
+	else:
+		%ArrowAnim.stop()
+
+
 func handle_effects() -> void:
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
@@ -62,13 +74,15 @@ func handle_effects() -> void:
 
 func handle_controls(delta : float) -> void:
 	var input := Vector3.ZERO
-	input.x = Input.get_axis("move_left", "move_right")
-	input.z = Input.get_axis("move_forward", "move_backward")
+	
+	if current:
+		input.x = Input.get_axis("move_left", "move_right")
+		input.z = Input.get_axis("move_forward", "move_backward")
 	
 	input = input.rotated(Vector3.UP, view.rotation.y).normalized()
 	movement_velocity = input * movement_speed * delta
 	
-	if Input.is_action_just_pressed("jump"):
+	if current and Input.is_action_just_pressed("jump"):
 		if jump_double:
 			gravity = -jump_strength
 			

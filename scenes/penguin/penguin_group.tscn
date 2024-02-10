@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxy4yl5hf8fok"]
+
+[ext_resource type="Script" path="res://scenes/penguin/penguin_group.gd" id="1_wneya"]
+
+[node name="PenguinGroup" type="Node3D"]
+script = ExtResource("1_wneya")
