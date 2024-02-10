@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyxpwsfyu8100"]
+[gd_scene load_steps=10 format=3 uid="uid://dyxpwsfyu8100"]
 
 [ext_resource type="PackedScene" uid="uid://dlbm052w6ciuj" path="res://scenes/ice_blocks/ice_block_1.tscn" id="1_6sp86"]
+[ext_resource type="Texture2D" uid="uid://b8wdsg0gqvd81" path="res://assets/sky.png" id="1_ftkit"]
 [ext_resource type="PackedScene" uid="uid://bxy4yl5hf8fok" path="res://scenes/penguin/penguin_group.tscn" id="2_kxyas"]
 [ext_resource type="PackedScene" uid="uid://c7xcu5p80d3vw" path="res://scenes/penguin/penguin.tscn" id="2_lkcwr"]
 [ext_resource type="Script" path="res://scenes/level/level_cam.gd" id="4_e8g2j"]
+[ext_resource type="PackedScene" uid="uid://bysfltniew1wv" path="res://scenes/water/water.tscn" id="5_kp601"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t5e3l"]
+panorama = ExtResource("1_ftkit")
+
+[sub_resource type="Sky" id="Sky_jgeun"]
+sky_material = SubResource("PanoramaSkyMaterial_t5e3l")
 
 [sub_resource type="Environment" id="Environment_worhx"]
-background_mode = 1
-background_color = Color(0.752941, 0.776471, 0.827451, 1)
-ambient_light_source = 2
+background_mode = 2
+background_color = Color(0.662745, 0.694118, 0.772549, 1)
+sky = SubResource("Sky_jgeun")
+ambient_light_source = 3
 ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
 tonemap_mode = 2
 
@@ -72,7 +81,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05902, -1.19209e-07, 0.882
 view = NodePath("../../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("starting_block")]
-transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, -5, 3, 0)
+transform = Transform3D(-4.37114e-08, 0.766044, -0.642788, 0, 0.642788, 0.766044, 1, 3.34849e-08, -2.80971e-08, -5, 5, 0)
 current = true
+fov = 60.0
 script = ExtResource("4_e8g2j")
 starting_block = NodePath("../Blocks/IceBlock1")
+
+[node name="Water" parent="." instance=ExtResource("5_kp601")]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.267837, 0)
