@@ -1,0 +1,242 @@
+[gd_scene load_steps=14 format=3 uid="uid://cy3lh8lovx3ga"]
+
+[ext_resource type="Texture2D" uid="uid://lxm2uvml2pqi" path="res://assets/input_prompt/keyboard_arrows.svg" id="1_c0wnx"]
+[ext_resource type="Script" path="res://scenes/menu/controls_layer.gd" id="1_ph6ki"]
+[ext_resource type="Texture2D" uid="uid://dxm865xm71m0j" path="res://assets/input_prompt/playstation_stick_l.svg" id="2_ey2at"]
+[ext_resource type="Texture2D" uid="uid://baxgv4nn8pokg" path="res://assets/input_prompt/keyboard_space_outline.svg" id="3_kda32"]
+[ext_resource type="Texture2D" uid="uid://b83mv8ykpld8a" path="res://assets/input_prompt/xbox_button_a_outline.svg" id="4_d2432"]
+[ext_resource type="Texture2D" uid="uid://j6pepm3jfgor" path="res://assets/input_prompt/playstation_button_cross_outline.svg" id="5_cbelh"]
+[ext_resource type="Texture2D" uid="uid://b3sruq6c8v4tu" path="res://assets/input_prompt/key_tab_icon_outline.svg" id="6_gd304"]
+[ext_resource type="Texture2D" uid="uid://cmh372cbkirr" path="res://assets/input_prompt/xbox_rb_outline.svg" id="7_3v7kp"]
+[ext_resource type="Texture2D" uid="uid://cme52yu6e4thh" path="res://assets/input_prompt/playstation_trigger_r1_outline.svg" id="8_i3vr0"]
+[ext_resource type="Texture2D" uid="uid://cauekv5no4t4o" path="res://assets/input_prompt/keyboard_escape_outline.svg" id="9_rycb8"]
+[ext_resource type="Texture2D" uid="uid://bxch8f5f1w0aj" path="res://assets/input_prompt/xbox_button_menu_outline.svg" id="10_cfwu2"]
+[ext_resource type="Texture2D" uid="uid://uxxo7hygkqv2" path="res://assets/input_prompt/playstation_button_options_outline.svg" id="11_d1ckm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_11da4"]
+font_size = 36
+font_color = Color(0.831373, 0.929412, 0.956863, 1)
+
+[node name="ControlsLayer" type="CanvasLayer"]
+script = ExtResource("1_ph6ki")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -204.5
+offset_right = 375.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 25
+
+[node name="Controls" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="ControlsHeader" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="Action" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"
+label_settings = SubResource("LabelSettings_11da4")
+horizontal_alignment = 1
+
+[node name="Keyboard" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Keyboard"
+label_settings = SubResource("LabelSettings_11da4")
+horizontal_alignment = 1
+
+[node name="Xbox" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Xbox"
+label_settings = SubResource("LabelSettings_11da4")
+horizontal_alignment = 1
+
+[node name="PS" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PlayStation"
+label_settings = SubResource("LabelSettings_11da4")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ControlsRow" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Action" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move"
+horizontal_alignment = 1
+
+[node name="Keyboard" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow/Keyboard"]
+layout_mode = 2
+texture = ExtResource("1_c0wnx")
+
+[node name="Xbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow/Xbox"]
+layout_mode = 2
+texture = ExtResource("2_ey2at")
+
+[node name="PS" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow/PS"]
+layout_mode = 2
+texture = ExtResource("2_ey2at")
+
+[node name="ControlsRow5" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Action" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsRow5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="Keyboard" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow5"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow5/Keyboard"]
+layout_mode = 2
+texture = ExtResource("3_kda32")
+
+[node name="Xbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow5"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow5/Xbox"]
+layout_mode = 2
+texture = ExtResource("4_d2432")
+
+[node name="PS" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow5"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow5/PS"]
+layout_mode = 2
+texture = ExtResource("5_cbelh")
+
+[node name="ControlsRow6" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Action" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsRow6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Switch
+Penguin"
+horizontal_alignment = 1
+
+[node name="Keyboard" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow6"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow6/Keyboard"]
+layout_mode = 2
+texture = ExtResource("6_gd304")
+
+[node name="Xbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow6"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow6/Xbox"]
+layout_mode = 2
+texture = ExtResource("7_3v7kp")
+
+[node name="PS" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow6"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow6/PS"]
+layout_mode = 2
+texture = ExtResource("8_i3vr0")
+
+[node name="ControlsRow7" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Action" type="Label" parent="PanelContainer/MarginContainer/Controls/ControlsRow7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Keyboard" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow7"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow7/Keyboard"]
+layout_mode = 2
+texture = ExtResource("9_rycb8")
+
+[node name="Xbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow7"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow7/Xbox"]
+layout_mode = 2
+texture = ExtResource("10_cfwu2")
+
+[node name="PS" type="HBoxContainer" parent="PanelContainer/MarginContainer/Controls/ControlsRow7"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Controls/ControlsRow7/PS"]
+layout_mode = 2
+texture = ExtResource("11_d1ckm")
+
+[node name="Spacer2" type="Control" parent="PanelContainer/MarginContainer/Controls"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"

@@ -1,7 +1,7 @@
 class_name IceBlock
 extends Node3D
 
-@export var health: int = 16 : set=set_health
+@export var health: int = 8 : set=set_health
 
 @onready var area_3d: Area3D = $Area3D
 @onready var sprite_3d: Sprite3D = $Sprite3D
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func set_health(value: int) -> void:
 	health = value
-	%Health.text = "%s / 16" % value
+	%Health.text = "%s / 8" % value
 	
 	if health <= 0:
 		queue_free()
@@ -37,5 +37,8 @@ func _on_body_exited(penguin: Penguin) -> void:
 		return
 	
 	penguins -= 1
-	health -= penguins
+	
+	if penguins <= 0:
+		health -= 1
+	
 	Events.ice_block_jumped_off.emit(self)

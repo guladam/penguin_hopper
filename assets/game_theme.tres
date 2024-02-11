@@ -1,3 +1,57 @@
-[gd_resource type="Theme" format=3 uid="uid://7vg4f7bpel7"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://7vg4f7bpel7"]
+
+[ext_resource type="FontFile" uid="uid://c17ppos46nqum" path="res://assets/font/concert_one_regular.ttf" id="1_7ajvv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h37jh"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0862745, 0.490196, 0.686275, 0.396078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.196078, 0.698039, 0.8, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjrw1"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0862745, 0.490196, 0.686275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc6cx"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0862745, 0.490196, 0.686275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [resource]
+default_font = ExtResource("1_7ajvv")
+default_font_size = 32
+Button/colors/font_color = Color(0.729412, 0.898039, 0.956863, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_h37jh")
+Button/styles/focus = SubResource("StyleBoxFlat_qjrw1")
+Button/styles/hover = SubResource("StyleBoxFlat_qjrw1")
+Button/styles/normal = SubResource("StyleBoxFlat_uc6cx")

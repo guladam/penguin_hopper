@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://btdn3klyrh55m"]
+[gd_scene load_steps=11 format=3 uid="uid://btdn3klyrh55m"]
 
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_afgk3"]
 [ext_resource type="Texture2D" uid="uid://b8wdsg0gqvd81" path="res://assets/sky.png" id="1_lproi"]
 [ext_resource type="PackedScene" uid="uid://bysfltniew1wv" path="res://scenes/water/water.tscn" id="2_acg37"]
 [ext_resource type="PackedScene" uid="uid://dlbm052w6ciuj" path="res://scenes/ice_blocks/ice_block_1.tscn" id="3_m674q"]
 [ext_resource type="PackedScene" uid="uid://c7xcu5p80d3vw" path="res://scenes/penguin/penguin.tscn" id="4_nxwbo"]
-[ext_resource type="Texture2D" uid="uid://dao6tur20kh41" path="res://icon.svg" id="5_vytbb"]
+[ext_resource type="PackedScene" uid="uid://d2twfd108xa25" path="res://scenes/menu/menu_ui_layer.tscn" id="5_ufcit"]
+[ext_resource type="PackedScene" uid="uid://cy3lh8lovx3ga" path="res://scenes/menu/controls_layer.tscn" id="6_k6lyb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ci5qw"]
 panorama = ExtResource("1_lproi")
@@ -21,6 +23,7 @@ ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
 tonemap_mode = 2
 
 [node name="Menu" type="Node3D"]
+script = ExtResource("1_afgk3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qpku5")
@@ -44,38 +47,7 @@ current = true
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 view = NodePath("../Camera3D")
 
-[node name="Menu" type="CanvasLayer" parent="."]
+[node name="MenuLayer" parent="." instance=ExtResource("5_ufcit")]
 
-[node name="MainMenu" type="VBoxContainer" parent="Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = -155.5
-offset_right = -155.0
-offset_bottom = 155.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 50
-
-[node name="Logo" type="TextureRect" parent="Menu/MainMenu"]
-layout_mode = 2
-texture = ExtResource("5_vytbb")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainMenu"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="NewGameButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
-layout_mode = 2
-text = "New Game"
-
-[node name="ControlsButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
-layout_mode = 2
-text = "Controls"
-
-[node name="ExitButton" type="Button" parent="Menu/MainMenu/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
+[node name="ControlsLayer" parent="." instance=ExtResource("6_k6lyb")]
+visible = false

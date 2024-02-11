@@ -76,6 +76,7 @@ shape = SubResource("CylinderShape3D_nobx5")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
+render_priority = 99
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D"]
 transparent_bg = true
